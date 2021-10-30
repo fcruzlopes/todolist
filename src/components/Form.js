@@ -5,6 +5,10 @@ var todoNumber = 0;
 
 function Form(props) {
     const [input, setInput] = useState('');
+
+    /*Handle the action of submit while clicking
+     the add button in the form. Submits the todo
+     in the list*/
     const handleSubmit = param => {
         param.preventDefault();
         if(todoNumber > Config.maxListSize)
@@ -21,6 +25,8 @@ function Form(props) {
         todoNumber++;
         setInput('');
     };
+
+    /*Refreshes the useState inputs */
     const handleChange = param => {
        setInput(param.target.value); 
     };
@@ -30,7 +36,7 @@ function Form(props) {
             <input className='todo-input' 
                    type='text' 
                    name='text'
-                   placeholder='Add a todo task' 
+                   placeholder='Insert todo' 
                    value={input}
                    onChange={handleChange}/>
             <button className='todo-btn'>Add</button>

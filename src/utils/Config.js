@@ -1,1 +1,1 @@
-export const maxListSize = 10;
+export const maxListSize = 50;
