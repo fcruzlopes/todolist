@@ -1,10 +1,16 @@
-import React, {useState } from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 const Config = require('../utils/Config.js');
 const Messages = require('../utils/Messages.js')
-var todoNumber = 0;
+var todoNumber = 1;
 
 function Form(props) {
     const [input, setInput] = useState('');
+
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        inputRef.current.focus()
+    })
 
     /*Handle the action of submit while clicking
      the add button in the form. Submits the todo
@@ -38,7 +44,8 @@ function Form(props) {
                    name='text'
                    placeholder='Insert todo' 
                    value={input}
-                   onChange={handleChange}/>
+                   onChange={handleChange}
+                   ref={inputRef}/>
             <button className='todo-btn'>Add</button>
         </form>
     )
