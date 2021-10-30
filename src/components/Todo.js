@@ -3,7 +3,7 @@ import {RiCloseCircleLine} from 'react-icons/ri';
 import {TiEdit} from 'react-icons/ti';
 import Form from './Form';
 
-function Todo({todos, completetodo, removeTodo, updateTodo}) {
+function Todo({todos, completeTodo, removeTodo, updateTodo}) {
     const [edit, setEdit] = useState({
         id: null,
         value: ''
@@ -25,7 +25,7 @@ function Todo({todos, completetodo, removeTodo, updateTodo}) {
     return todos.map((todo, index) => (
         <div className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
              key={index}>
-            <div key={todo.id} onClick={() => completetodo(todo.id)}>
+            <div key={todo.id} onClick={() => completeTodo(todo.id)}>
                 {todo.text}
             </div>
             <div className='todo-icon'>

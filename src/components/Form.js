@@ -4,7 +4,7 @@ const Messages = require('../utils/Messages.js')
 var todoNumber = 1;
 
 function Form(props) {
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState(props.edit ? props.edit.value : '');
 
     const inputRef = useRef(null);
 
@@ -39,6 +39,19 @@ function Form(props) {
 
     return (
         <form className='todo-form' onSubmit = {handleSubmit}>
+            {props.edit ? (
+                <>
+            <input className='todo-input edit' 
+                   type='text' 
+                   name='text'
+                   placeholder='Update your item' 
+                   value={input}
+                   onChange={handleChange}
+                   ref={inputRef}/>
+            <button className='todo-btn edit'>Update</button> 
+            </>
+            ) : (
+            <>
             <input className='todo-input' 
                    type='text' 
                    name='text'
@@ -47,6 +60,7 @@ function Form(props) {
                    onChange={handleChange}
                    ref={inputRef}/>
             <button className='todo-btn'>Add</button>
+            </>)}
         </form>
     )
 }

@@ -55,7 +55,7 @@ function List() {
     };
 
     return (
-        <div>
+        <div className='todo-app'>
             <h1>TodoList</h1>
             <Form onSubmit={addTodo} />
             <Todo todos={todos} 
